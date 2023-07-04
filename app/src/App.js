@@ -1,14 +1,16 @@
 import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 function App() {
 
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState();
   
   const handle =  async()=>{
     const response = await fetch("http://localhost:8080/data", {
       method: 'GET'
     })
-    alert(response)
+    const data = await response.text()
+    console.log(data)
   }
 
   return (
