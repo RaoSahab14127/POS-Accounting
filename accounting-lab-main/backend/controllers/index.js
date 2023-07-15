@@ -5,7 +5,7 @@ const mysql = require("mysql2");
 const pool = mysql.createPool({
   connectionLimit: 10,
   host: process.env.DB_HOST,
-  user: "usama",
+  user: "root",
   password: "password",
   database: "test",
 });
@@ -160,28 +160,28 @@ const getAllTransactions = async (req, res) => {
 const getBalanceSheet = async (req, res) => {
   try {
     // Get the date from the request query parameters
-    const { date } = req.query;
+    const { startDate, endDate } = req.query;
 
     // Fetch detailed data from MySQL tables for assets, liabilities, and owner's equity based on the provided date
     const assetsQuery = `
       SELECT * FROM general_journal
       WHERE account_type_id = 1 
-        AND date <= ?
+      AND date BETWEEN ? AND ?
     `;
     const liabilitiesQuery = `
       SELECT * FROM general_journal
       WHERE account_type_id = 2 AND transaction_type_id = 2
-        AND date <= ?
+      AND date BETWEEN ? AND ?
     `;
     const equityQuery = `
       SELECT * FROM general_journal
       WHERE account_type_id = 5 AND transaction_type_id = 2
-        AND date <= ?
+      AND date BETWEEN ? AND ?
     `;
 
-    const assetsResult = await executeQuery(assetsQuery, [date]);
-    const liabilitiesResult = await executeQuery(liabilitiesQuery, [date]);
-    const equityResult = await executeQuery(equityQuery, [date]);
+    const assetsResult = await executeQuery(assetsQuery, [startDate, endDate]);
+    const liabilitiesResult = await executeQuery(liabilitiesQuery, [startDate, endDate]);
+    const equityResult = await executeQuery(equityQuery, [startDate, endDate]);
 
     // Construct the balance sheet object
     const balanceSheet = {

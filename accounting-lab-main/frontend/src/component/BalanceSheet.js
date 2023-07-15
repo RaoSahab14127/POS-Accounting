@@ -2,7 +2,9 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const BalanceSheet = () => {
-  const [date, setDate] = useState("1989-12-28");
+  const [startDate, setStartDate] = useState("1989-12-28");
+  const [endDate, setEndDate] = useState("1989-12-28");
+
   // const [financialElementType, setFinancialElementType] = useState([]);
   // const [transactionType, setTransactionType] = useState([]);
   const [assets, setAssets] = useState([]);
@@ -32,19 +34,24 @@ const BalanceSheet = () => {
     fetchData();
   }, []);
 
-  const handleDateChange = (e) => {
-    setDate(e.target.value);
+  const handleStartDateChange = (e) => {
+    setStartDate(e.target.value);
+  };
+
+  const handleEndDateChange = (e) => {
+    setEndDate(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(date);
+    console.log(startDate);
+    console.log(endDate);
 
     try {
       const response = await axios.get(
         "http://localhost:3000/api/balance-sheet",
         {
-          params: { date },
+          params: { startDate, endDate },
         }
       ); // Replace with your Node backend API endpoint for fetching data
       console.log(response.data);
@@ -141,7 +148,6 @@ const BalanceSheet = () => {
                 })}
               </div>
             </div>
-
             <div className="col-6">
               <div className="row border">
                 <div className="col-9 border">
@@ -200,16 +206,27 @@ const BalanceSheet = () => {
             <div className="row g-3">
               <div className="col-5">
                 <div className="form-group">
-                  <label htmlFor="date" className="form-label">
-                    Select Date
+                  <label htmlFor="startdate" className="form-label">
+                    Start Date
                   </label>
                   <input
-                    name="date"
+                    name="startdate"
                     type="date"
                     id="date"
                     className="form-control"
-                    value={date}
-                    onChange={handleDateChange}
+                    value={startDate}
+                    onChange={handleStartDateChange}
+                  />
+                  <label htmlFor="enddate" className="form-label">
+                    End Date
+                  </label>
+                  <input
+                    name="enddate"
+                    type="date"
+                    id="date"
+                    className="form-control"
+                    value={endDate}
+                    onChange={handleEndDateChange}
                   />
                 </div>
 

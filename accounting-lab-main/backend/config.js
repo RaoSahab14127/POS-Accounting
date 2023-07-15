@@ -4,7 +4,7 @@ const config = {
     // host: "db4free.net",
     // user: "restapitest123",
 
-    user: "usama",
+    user: "root",
     password: "password",
     database: "test",
   },
