@@ -1,0 +1,184 @@
+.t-account-div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 5rem;
+}
+.text-center {
+  text-align: center;
+}
+.span-div {
+  width: 500px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+  /* background-color: aquamarine; */
+  text-decoration: underline;
+}
+
+.span-div p {
+  margin-left: auto;
+}
+
+.span-div span:not(:first-child) {
+  margin-left: 10px;
+}
+/* PRODUCT MANAGEMENT */
+.product-management {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+/* customer management */
+
+.customer-management {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.input-field {
+  width: 200px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+/* INVOCES STYLING ... */
+
+.invoice-list {
+  margin: 20px;
+}
+
+.invoice-list h2 {
+  margin-bottom: 10px;
+}
+
+.invoice-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.invoice-list th,
+.invoice-list td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.invoice-list th {
+  background-color: #f2f2f2;
+}
+
+.invoice-list tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+/* NAVBAR */
+
+.navbar {
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+.navbar__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__item {
+  margin-right: 10px;
+}
+
+.navbar__link {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar__link:hover {
+  text-decoration: underline;
+}
